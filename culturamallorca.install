@@ -14,6 +14,64 @@ function culturamallorca_install() {
    	))
    	->condition('name', 'culturamallorca')
    	->execute();
+
+   		// Reverting events views
+	  ctools_include('object-cache');
+	  $views = views_get_all_views();
+	  foreach ($views as $view) {
+	    if ($view->type == t('Overridden')) {
+	      // Revert the view.
+	      $view->delete();
+	      // Clear its cache.
+	      ctools_object_cache_clear('view', $view->name);
+	    }
+	  }
+	cache_clear_all();
+
+	// Set a language for the date filter blocks
+	db_insert('i18n_block_language')
+		->fields(array(
+			'module' => 'views',
+			'delta' => '-exp-events-page',
+			'language' => 'ca',
+			))
+		->execute();
+	watchdog('culturamallorca', '-exp-events-page language set to ca', NULL, WATCHDOG_NOTICE);
+
+	db_insert('i18n_block_language')
+		->fields(array(
+			'module' => 'views',
+			'delta' => '-exp-events_castella-page',
+			'language' => 'es',
+			))
+		->execute();
+	watchdog('culturamallorca', '-exp-events_esp-page language set to es', NULL, WATCHDOG_NOTICE);
+
+	db_update('block')
+		->fields(array(
+			'status' => 1,
+			'weight' => -43,
+			'region' => 'preface_second',
+			'title' => 'Cerca'
+			))
+		->condition('delta', '-exp-events-page')
+		->condition('theme', 'culturamallorca')
+		->execute();
+	watchdog('culturamallorca', '-exp-events-page moved to preface_first', NULL, WATCHDOG_NOTICE);
+
+	db_update('block')
+		->fields(array(
+			'status' => 1,
+			'weight' => -43,
+			'region' => 'preface_second',
+			'title' => 'Busca'
+			))
+		->condition('delta', '-exp-events_castella-page')
+		->condition('theme', 'culturamallorca')
+		->execute();
+	watchdog('culturamallorca', '-exp-events_castella-page moved to preface_first', NULL, WATCHDOG_NOTICE);
+	block_flush_caches();
+	cache_clear_all();
 }
 
 /**
@@ -44,23 +102,7 @@ function culturamallorca_uninstall() {
 		->execute();
 }
 
-function culturamallorca_update_7001() {
-
-	ctools_include('object-cache');
-	  $views = views_get_all_views();
-	  foreach ($views as $view) {
-	    if ($view->type == t('Overridden')) {
-	      // Revert the view.
-	      $view->delete();
-	      // Clear its cache.
-	      ctools_object_cache_clear('view', $view->name);
-	    }
-	  }
-	  return t('All views have been reverted.');
-	drupal_flush_all_caches();
-	block_flush_caches();
-}
-
+/*
 function culturamallorca_update_7002() {
 	// Set a language for each block
 
@@ -84,8 +126,8 @@ function culturamallorca_update_7002() {
 	return t('Added language for filter blocks');
 	block_flush_caches();
 }
-
-function culturamallorca_update_7005() {
+*/
+function culturamallorca_update_7001() {
 	// Move Views Exposed filter to the right region
 	block_flush_caches();
 	db_update('block')
