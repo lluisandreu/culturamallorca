@@ -1,0 +1,62 @@
+<?php
+
+function culturamallorca_preprocess_html(&$vars) {
+	// Adding some assets to this module
+
+	drupal_add_css(drupal_get_path("module", "culturamallorca") . '/vendor/daterangepicker.min.css');
+	drupal_add_js(drupal_get_path("module", "culturamallorca") . '/vendor/moment.min.js');
+	drupal_add_js(drupal_get_path("module", "culturamallorca") . '/vendor/jquery.daterangepicker.min.js');
+	drupal_add_js(drupal_get_path("module", "culturamallorca") . '/js/culturamallorca.js', array('weight' => 100));
+	drupal_add_css(drupal_get_path("module", "culturamallorca") . '/css/culturamallorca.css');
+
+	drupal_add_library('system', 'ui');
+}
+
+function culturamallorca_form_alter(&$form, &$form_state, $form_id) {
+	// Altering the events exposed filters to add some placeholders and make them look better
+	if($form_id == 'views_exposed_form') {
+		if($form['#id'] == 'views-exposed-form-events-page') {
+			$form['date-toggle'] = array(
+				'#type' => 'textfield',
+				'#size' => 30,
+				'#default_value' => NULL,
+				'#weight' => -50,
+				'#attributes' => array(
+					'id' => 'date-toggle',
+					'placeholder' => 'Cerca per data'
+				),
+			);
+			$form['place']['#attributes']['placeholder'] = t("Cerca per municipi");
+			$form['place']['#attributes']['class'][] = 'place-autocomplete';
+			$form['submit']['#value'] = '';
+		}
+		if($form['#id'] == 'views-exposed-form-events-castella-page') {
+			$form['date-toggle'] = array(
+				'#type' => 'textfield',
+				'#size' => 30,
+				'#default_value' => NULL,
+				'#weight' => -50,
+				'#attributes' => array(
+					'id' => 'date-toggle',
+					'placeholder' => 'Busca por fecha'
+				),
+			);
+			$form['place']['#attributes']['placeholder'] = t("Busca por municipio");
+			$form['place']['#attributes']['class'][] = 'place-autocomplete';
+			$form['submit']['#value'] = '';
+		}
+	}
+}
+
+function culturamallorca_date_popup_process_alter(&$element, &$form_state, $context) {
+	// Remove the help text below the date field for all fields
+  unset($element['date']['#description']);
+  unset($element['time']['#description']);
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function culturamallorca_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}

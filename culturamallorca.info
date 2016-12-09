@@ -1,0 +1,8 @@
+name = Cultura Mallorca Hooks
+description = Custom functions and hooks for Cultura Mallorca. By Lluis Oliver: lluisandreu.com
+core = 7.x
+package = Cultura Mallorca
+version = 7.x-1.0
+
+dependencies[] = jquery_update
+
