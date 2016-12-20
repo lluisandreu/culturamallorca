@@ -16,6 +16,8 @@ function culturamallorca_form_alter(&$form, &$form_state, $form_id) {
 	// Altering the events exposed filters to add some placeholders and make them look better
 	if($form_id == 'views_exposed_form') {
 		if($form['#id'] == 'views-exposed-form-events-page') {
+			$form['start-date']['value']['#attributes']['class'][] = 'start-date-picker';
+			$form['end-date']['value']['#attributes']['class'][] = 'end-date-picker';
 			$form['date-toggle'] = array(
 				'#type' => 'textfield',
 				'#size' => 30,
@@ -31,6 +33,8 @@ function culturamallorca_form_alter(&$form, &$form_state, $form_id) {
 			$form['submit']['#value'] = '';
 		}
 		if($form['#id'] == 'views-exposed-form-events-castella-page') {
+			$form['start-date']['value']['#attributes']['class'][] = 'start-date-picker';
+			$form['end-date']['value']['#attributes']['class'][] = 'end-date-picker';
 			$form['date-toggle'] = array(
 				'#type' => 'textfield',
 				'#size' => 30,

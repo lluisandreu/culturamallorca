@@ -8,9 +8,10 @@
             })
         }
 
-        $('#date-toggle').dateRangePicker({
+        var dateToggle = document.getElementById('date-toggle');
+        $(dateToggle).dateRangePicker({
             separator: ' a ',
-            language: 'es',
+            language: 'cat',
             format: 'D/M/Y',
             shortcuts: {
                 'next-days': [3, 5, 7]
@@ -19,10 +20,16 @@
             customTopBar: 'Selecciona un període',
             startOfWeek: 'monday',
             setValue: function (s, s1, s2) {
-                $('#edit-start-date-min-date').val(s1);
-                $('#edit-start-date-max-date').val(s2);
+                $('.start-date-picker').val(s1);
+                $('.end-date-picker').val(s2);
                 $(this).val(s1 + ' al ' + s2);
             }
+        });
+        $(dateToggle).on('click change blur', function(event) {
+            event.preventDefault();
+            var value = $(this).val().split(" al ");
+            $('.start-date-picker').val(value[0]);
+            $('.end-date-picker').val(value[1]);
         });
     });
 

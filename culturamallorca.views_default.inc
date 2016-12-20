@@ -36,7 +36,13 @@ $handler->display->display_options['pager']['options']['tags']['next'] = 'siguie
 $handler->display->display_options['pager']['options']['tags']['last'] = 'última »';
 $handler->display->display_options['style_plugin'] = 'default';
 $handler->display->display_options['row_plugin'] = 'fields';
-/* Campo: Contenido: Selecciona icona */
+/* No results behavior: Global: Unfiltered text */
+$handler->display->display_options['empty']['area_text_custom']['id'] = 'area_text_custom';
+$handler->display->display_options['empty']['area_text_custom']['table'] = 'views';
+$handler->display->display_options['empty']['area_text_custom']['field'] = 'area_text_custom';
+$handler->display->display_options['empty']['area_text_custom']['empty'] = TRUE;
+$handler->display->display_options['empty']['area_text_custom']['content'] = 'No hem pogut trobar cap esdeveniment amb aquests paràmetres de cerca';
+/* Camp: Contingut: Selecciona icona */
 $handler->display->display_options['fields']['field_selecciona_icona']['id'] = 'field_selecciona_icona';
 $handler->display->display_options['fields']['field_selecciona_icona']['table'] = 'field_data_field_selecciona_icona';
 $handler->display->display_options['fields']['field_selecciona_icona']['field'] = 'field_selecciona_icona';
@@ -103,7 +109,7 @@ $handler->display->display_options['fields']['field_selecciona_icona']['settings
   'linked' => 0,
   'text_alt' => 0,
 );
-/* Campo: Contenido: Foto destacada */
+/* Camp: Contingut: Foto destacada */
 $handler->display->display_options['fields']['field_foto_destacada']['id'] = 'field_foto_destacada';
 $handler->display->display_options['fields']['field_foto_destacada']['table'] = 'field_data_field_foto_destacada';
 $handler->display->display_options['fields']['field_foto_destacada']['field'] = 'field_foto_destacada';
@@ -114,7 +120,7 @@ $handler->display->display_options['fields']['field_foto_destacada']['settings']
   'image_style' => 'event_portada',
   'image_link' => 'content',
 );
-/* Campo: Contenido: Título */
+/* Camp: Contingut: Títol */
 $handler->display->display_options['fields']['title']['id'] = 'title';
 $handler->display->display_options['fields']['title']['table'] = 'node';
 $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -123,7 +129,7 @@ $handler->display->display_options['fields']['title']['alter']['word_boundary'] 
 $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
 $handler->display->display_options['fields']['title']['element_type'] = 'h2';
 $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-/* Campo: Contenido: Tema */
+/* Camp: Contingut: Tema */
 $handler->display->display_options['fields']['field_tema']['id'] = 'field_tema';
 $handler->display->display_options['fields']['field_tema']['table'] = 'field_data_field_tema';
 $handler->display->display_options['fields']['field_tema']['field'] = 'field_tema';
@@ -132,7 +138,7 @@ $handler->display->display_options['fields']['field_tema']['alter']['alter_text'
 $handler->display->display_options['fields']['field_tema']['alter']['text'] = '[field_tema].';
 $handler->display->display_options['fields']['field_tema']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_tema']['type'] = 'taxonomy_term_reference_plain';
-/* Campo: Contenido: Body */
+/* Camp: Contingut: Body */
 $handler->display->display_options['fields']['body']['id'] = 'body';
 $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
 $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -142,13 +148,13 @@ $handler->display->display_options['fields']['body']['type'] = 'text_trimmed';
 $handler->display->display_options['fields']['body']['settings'] = array(
   'trim_length' => '200',
 );
-/* Campo: Contenido: On */
+/* Camp: Contingut: On */
 $handler->display->display_options['fields']['field_on_adreca']['id'] = 'field_on_adreca';
 $handler->display->display_options['fields']['field_on_adreca']['table'] = 'field_data_field_on_adreca';
 $handler->display->display_options['fields']['field_on_adreca']['field'] = 'field_on_adreca';
 $handler->display->display_options['fields']['field_on_adreca']['label'] = 'On:';
 $handler->display->display_options['fields']['field_on_adreca']['element_label_colon'] = FALSE;
-/* Campo: Contenido: Quan */
+/* Camp: Contingut: Quan */
 $handler->display->display_options['fields']['field_quan']['id'] = 'field_quan';
 $handler->display->display_options['fields']['field_quan']['table'] = 'field_data_field_quan';
 $handler->display->display_options['fields']['field_quan']['field'] = 'field_quan';
@@ -162,30 +168,30 @@ $handler->display->display_options['fields']['field_quan']['settings'] = array(
   'multiple_to' => '',
   'show_remaining_days' => 0,
 );
-/* Sort criterion: Campo: Ordre (field_ordre) */
+/* Sort criterion: Camp: Ordre (field_ordre) */
 $handler->display->display_options['sorts']['field_ordre_value']['id'] = 'field_ordre_value';
 $handler->display->display_options['sorts']['field_ordre_value']['table'] = 'field_data_field_ordre';
 $handler->display->display_options['sorts']['field_ordre_value']['field'] = 'field_ordre_value';
 $handler->display->display_options['sorts']['field_ordre_value']['order'] = 'DESC';
-/* Sort criterion: Contenido: Quan -  start date (field_quan) */
+/* Sort criterion: Contingut: Quan -  start date (field_quan) */
 $handler->display->display_options['sorts']['field_quan_value']['id'] = 'field_quan_value';
 $handler->display->display_options['sorts']['field_quan_value']['table'] = 'field_data_field_quan';
 $handler->display->display_options['sorts']['field_quan_value']['field'] = 'field_quan_value';
-/* Filter criterion: Contenido: Publicado */
+/* Filter criterion: Contingut: Publicat */
 $handler->display->display_options['filters']['status']['id'] = 'status';
 $handler->display->display_options['filters']['status']['table'] = 'node';
 $handler->display->display_options['filters']['status']['field'] = 'status';
 $handler->display->display_options['filters']['status']['value'] = 1;
 $handler->display->display_options['filters']['status']['group'] = 1;
 $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-/* Filter criterion: Contenido: Tipo */
+/* Filter criterion: Contingut: Tipus */
 $handler->display->display_options['filters']['type']['id'] = 'type';
 $handler->display->display_options['filters']['type']['table'] = 'node';
 $handler->display->display_options['filters']['type']['field'] = 'type';
 $handler->display->display_options['filters']['type']['value'] = array(
   'event' => 'event',
 );
-/* Filter criterion: Contenido: Idioma */
+/* Filter criterion: Contingut: Llengua */
 $handler->display->display_options['filters']['language']['id'] = 'language';
 $handler->display->display_options['filters']['language']['table'] = 'node';
 $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -208,15 +214,16 @@ $handler->display->display_options['pager']['options']['tags']['last'] = '';
 $handler->display->display_options['exposed_block'] = TRUE;
 $handler->display->display_options['defaults']['arguments'] = FALSE;
 $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+$handler->display->display_options['filter_groups']['operator'] = 'OR';
 $handler->display->display_options['defaults']['filters'] = FALSE;
-/* Filter criterion: Contenido: Publicado */
+/* Filter criterion: Contingut: Publicat */
 $handler->display->display_options['filters']['status']['id'] = 'status';
 $handler->display->display_options['filters']['status']['table'] = 'node';
 $handler->display->display_options['filters']['status']['field'] = 'status';
 $handler->display->display_options['filters']['status']['value'] = 1;
 $handler->display->display_options['filters']['status']['group'] = 1;
 $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-/* Filter criterion: Contenido: Tipo */
+/* Filter criterion: Contingut: Tipus */
 $handler->display->display_options['filters']['type']['id'] = 'type';
 $handler->display->display_options['filters']['type']['table'] = 'node';
 $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -224,14 +231,7 @@ $handler->display->display_options['filters']['type']['value'] = array(
   'event' => 'event',
 );
 $handler->display->display_options['filters']['type']['group'] = 1;
-/* Filter criterion: Contenido: Has taxonomy term */
-$handler->display->display_options['filters']['tid']['id'] = 'tid';
-$handler->display->display_options['filters']['tid']['table'] = 'taxonomy_index';
-$handler->display->display_options['filters']['tid']['field'] = 'tid';
-$handler->display->display_options['filters']['tid']['value'] = '';
-$handler->display->display_options['filters']['tid']['group'] = 1;
-$handler->display->display_options['filters']['tid']['vocabulary'] = 'tema';
-/* Filter criterion: Contenido: Idioma */
+/* Filter criterion: Contingut: Llengua */
 $handler->display->display_options['filters']['language']['id'] = 'language';
 $handler->display->display_options['filters']['language']['table'] = 'node';
 $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -239,7 +239,7 @@ $handler->display->display_options['filters']['language']['value'] = array(
   'ca' => 'ca',
 );
 $handler->display->display_options['filters']['language']['group'] = 1;
-/* Filter criterion: Contenido: On (field_on_adreca) */
+/* Filter criterion: Contingut: On (field_on_adreca) */
 $handler->display->display_options['filters']['field_on_adreca_value']['id'] = 'field_on_adreca_value';
 $handler->display->display_options['filters']['field_on_adreca_value']['table'] = 'field_data_field_on_adreca';
 $handler->display->display_options['filters']['field_on_adreca_value']['field'] = 'field_on_adreca_value';
@@ -255,24 +255,40 @@ $handler->display->display_options['filters']['field_on_adreca_value']['expose']
   3 => 0,
   4 => 0,
 );
-/* Filter criterion: Contenido: Quan -  start date (field_quan) */
+/* Filter criterion: Contingut: Quan - end date (field_quan:value2) */
+$handler->display->display_options['filters']['field_quan_value2']['id'] = 'field_quan_value2';
+$handler->display->display_options['filters']['field_quan_value2']['table'] = 'field_data_field_quan';
+$handler->display->display_options['filters']['field_quan_value2']['field'] = 'field_quan_value2';
+$handler->display->display_options['filters']['field_quan_value2']['operator'] = '>=';
+$handler->display->display_options['filters']['field_quan_value2']['group'] = 1;
+$handler->display->display_options['filters']['field_quan_value2']['exposed'] = TRUE;
+$handler->display->display_options['filters']['field_quan_value2']['expose']['operator_id'] = 'field_quan_value2_op';
+$handler->display->display_options['filters']['field_quan_value2']['expose']['operator'] = 'field_quan_value2_op';
+$handler->display->display_options['filters']['field_quan_value2']['expose']['identifier'] = 'start-date';
+$handler->display->display_options['filters']['field_quan_value2']['expose']['remember_roles'] = array(
+  2 => '2',
+  1 => 0,
+  3 => 0,
+  4 => 0,
+);
+$handler->display->display_options['filters']['field_quan_value2']['form_type'] = 'date_popup';
+/* Filter criterion: Contingut: Quan -  start date (field_quan) */
 $handler->display->display_options['filters']['field_quan_value']['id'] = 'field_quan_value';
 $handler->display->display_options['filters']['field_quan_value']['table'] = 'field_data_field_quan';
 $handler->display->display_options['filters']['field_quan_value']['field'] = 'field_quan_value';
-$handler->display->display_options['filters']['field_quan_value']['operator'] = 'between';
+$handler->display->display_options['filters']['field_quan_value']['operator'] = '<=';
 $handler->display->display_options['filters']['field_quan_value']['group'] = 1;
 $handler->display->display_options['filters']['field_quan_value']['exposed'] = TRUE;
 $handler->display->display_options['filters']['field_quan_value']['expose']['operator_id'] = 'field_quan_value_op';
 $handler->display->display_options['filters']['field_quan_value']['expose']['operator'] = 'field_quan_value_op';
-$handler->display->display_options['filters']['field_quan_value']['expose']['identifier'] = 'start-date';
+$handler->display->display_options['filters']['field_quan_value']['expose']['identifier'] = 'end-date';
 $handler->display->display_options['filters']['field_quan_value']['expose']['remember_roles'] = array(
   2 => '2',
   1 => 0,
   3 => 0,
   4 => 0,
 );
-$handler->display->display_options['filters']['field_quan_value']['form_type'] = 'date_text';
-$handler->display->display_options['filters']['field_quan_value']['year_range'] = '-1:+1';
+$handler->display->display_options['filters']['field_quan_value']['form_type'] = 'date_popup';
 $handler->display->display_options['path'] = 'esdeveniments';
 
 /* Display: Block */
@@ -313,6 +329,7 @@ $handler->display->display_options['row_options']['guid_field_options'] = array(
 );
 $handler->display->display_options['path'] = 'rss';
 
+
 $export['events'] = $view;
 
 
@@ -347,7 +364,7 @@ $handler->display->display_options['pager']['options']['tags']['next'] = '›';
 $handler->display->display_options['pager']['options']['tags']['last'] = '';
 $handler->display->display_options['style_plugin'] = 'default';
 $handler->display->display_options['row_plugin'] = 'fields';
-/* Campo: Contenido: Selecciona icona */
+/* Camp: Contingut: Selecciona icona */
 $handler->display->display_options['fields']['field_selecciona_icona']['id'] = 'field_selecciona_icona';
 $handler->display->display_options['fields']['field_selecciona_icona']['table'] = 'field_data_field_selecciona_icona';
 $handler->display->display_options['fields']['field_selecciona_icona']['field'] = 'field_selecciona_icona';
@@ -414,7 +431,7 @@ $handler->display->display_options['fields']['field_selecciona_icona']['settings
   'linked' => 0,
   'text_alt' => 0,
 );
-/* Campo: Contenido: Foto destacada */
+/* Camp: Contingut: Foto destacada */
 $handler->display->display_options['fields']['field_foto_destacada']['id'] = 'field_foto_destacada';
 $handler->display->display_options['fields']['field_foto_destacada']['table'] = 'field_data_field_foto_destacada';
 $handler->display->display_options['fields']['field_foto_destacada']['field'] = 'field_foto_destacada';
@@ -425,14 +442,14 @@ $handler->display->display_options['fields']['field_foto_destacada']['settings']
   'image_style' => 'event_portada',
   'image_link' => 'content',
 );
-/* Campo: Contenido: Título */
+/* Camp: Contingut: Títol */
 $handler->display->display_options['fields']['title']['id'] = 'title';
 $handler->display->display_options['fields']['title']['table'] = 'node';
 $handler->display->display_options['fields']['title']['field'] = 'title';
 $handler->display->display_options['fields']['title']['label'] = '';
 $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
 $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-/* Campo: Contenido: Tema */
+/* Camp: Contingut: Tema */
 $handler->display->display_options['fields']['field_tema']['id'] = 'field_tema';
 $handler->display->display_options['fields']['field_tema']['table'] = 'field_data_field_tema';
 $handler->display->display_options['fields']['field_tema']['field'] = 'field_tema';
@@ -441,7 +458,7 @@ $handler->display->display_options['fields']['field_tema']['alter']['alter_text'
 $handler->display->display_options['fields']['field_tema']['alter']['text'] = '[field_tema].';
 $handler->display->display_options['fields']['field_tema']['element_label_colon'] = FALSE;
 $handler->display->display_options['fields']['field_tema']['type'] = 'taxonomy_term_reference_plain';
-/* Campo: Contenido: Body */
+/* Camp: Contingut: Body */
 $handler->display->display_options['fields']['body']['id'] = 'body';
 $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
 $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -451,13 +468,13 @@ $handler->display->display_options['fields']['body']['type'] = 'text_trimmed';
 $handler->display->display_options['fields']['body']['settings'] = array(
   'trim_length' => '200',
 );
-/* Campo: Contenido: On */
+/* Camp: Contingut: On */
 $handler->display->display_options['fields']['field_on_adreca']['id'] = 'field_on_adreca';
 $handler->display->display_options['fields']['field_on_adreca']['table'] = 'field_data_field_on_adreca';
 $handler->display->display_options['fields']['field_on_adreca']['field'] = 'field_on_adreca';
 $handler->display->display_options['fields']['field_on_adreca']['label'] = 'Donde: ';
 $handler->display->display_options['fields']['field_on_adreca']['element_label_colon'] = FALSE;
-/* Campo: Contenido: Quan */
+/* Camp: Contingut: Quan */
 $handler->display->display_options['fields']['field_quan']['id'] = 'field_quan';
 $handler->display->display_options['fields']['field_quan']['table'] = 'field_data_field_quan';
 $handler->display->display_options['fields']['field_quan']['field'] = 'field_quan';
@@ -471,23 +488,23 @@ $handler->display->display_options['fields']['field_quan']['settings'] = array(
   'multiple_to' => '',
   'show_remaining_days' => 0,
 );
-/* Sort criterion: Campo: Ordre (field_ordre) */
+/* Sort criterion: Camp: Ordre (field_ordre) */
 $handler->display->display_options['sorts']['field_ordre_value']['id'] = 'field_ordre_value';
 $handler->display->display_options['sorts']['field_ordre_value']['table'] = 'field_data_field_ordre';
 $handler->display->display_options['sorts']['field_ordre_value']['field'] = 'field_ordre_value';
 $handler->display->display_options['sorts']['field_ordre_value']['order'] = 'DESC';
-/* Sort criterion: Contenido: Quan -  start date (field_quan) */
+/* Sort criterion: Contingut: Quan -  start date (field_quan) */
 $handler->display->display_options['sorts']['field_quan_value']['id'] = 'field_quan_value';
 $handler->display->display_options['sorts']['field_quan_value']['table'] = 'field_data_field_quan';
 $handler->display->display_options['sorts']['field_quan_value']['field'] = 'field_quan_value';
-/* Filter criterion: Contenido: Publicado */
+/* Filter criterion: Contingut: Publicat */
 $handler->display->display_options['filters']['status']['id'] = 'status';
 $handler->display->display_options['filters']['status']['table'] = 'node';
 $handler->display->display_options['filters']['status']['field'] = 'status';
 $handler->display->display_options['filters']['status']['value'] = 1;
 $handler->display->display_options['filters']['status']['group'] = 1;
 $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-/* Filter criterion: Contenido: Tipo */
+/* Filter criterion: Contingut: Tipus */
 $handler->display->display_options['filters']['type']['id'] = 'type';
 $handler->display->display_options['filters']['type']['table'] = 'node';
 $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -495,7 +512,7 @@ $handler->display->display_options['filters']['type']['value'] = array(
   'event' => 'event',
 );
 $handler->display->display_options['filters']['type']['group'] = 1;
-/* Filter criterion: Contenido: Idioma */
+/* Filter criterion: Contingut: Llengua */
 $handler->display->display_options['filters']['language']['id'] = 'language';
 $handler->display->display_options['filters']['language']['table'] = 'node';
 $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -503,7 +520,7 @@ $handler->display->display_options['filters']['language']['value'] = array(
   'es' => 'es',
 );
 $handler->display->display_options['filters']['language']['group'] = 1;
-/* Filter criterion: Contenido: On (field_on_adreca) */
+/* Filter criterion: Contingut: On (field_on_adreca) */
 $handler->display->display_options['filters']['field_on_adreca_value']['id'] = 'field_on_adreca_value';
 $handler->display->display_options['filters']['field_on_adreca_value']['table'] = 'field_data_field_on_adreca';
 $handler->display->display_options['filters']['field_on_adreca_value']['field'] = 'field_on_adreca_value';
@@ -519,20 +536,38 @@ $handler->display->display_options['filters']['field_on_adreca_value']['expose']
   3 => 0,
   4 => 0,
 );
-/* Filter criterion: Contenido: Quan -  start date (field_quan) */
+/* Filter criterion: Contingut: Quan - end date (field_quan:value2) */
+$handler->display->display_options['filters']['field_quan_value2']['id'] = 'field_quan_value2';
+$handler->display->display_options['filters']['field_quan_value2']['table'] = 'field_data_field_quan';
+$handler->display->display_options['filters']['field_quan_value2']['field'] = 'field_quan_value2';
+$handler->display->display_options['filters']['field_quan_value2']['operator'] = '>=';
+$handler->display->display_options['filters']['field_quan_value2']['group'] = 1;
+$handler->display->display_options['filters']['field_quan_value2']['exposed'] = TRUE;
+$handler->display->display_options['filters']['field_quan_value2']['expose']['operator_id'] = 'field_quan_value2_op';
+$handler->display->display_options['filters']['field_quan_value2']['expose']['operator'] = 'field_quan_value2_op';
+$handler->display->display_options['filters']['field_quan_value2']['expose']['identifier'] = 'start-date';
+$handler->display->display_options['filters']['field_quan_value2']['expose']['remember'] = TRUE;
+$handler->display->display_options['filters']['field_quan_value2']['expose']['remember_roles'] = array(
+  2 => '2',
+  1 => '1',
+  3 => 0,
+  4 => 0,
+);
+$handler->display->display_options['filters']['field_quan_value2']['form_type'] = 'date_popup';
+/* Filter criterion: Contingut: Quan -  start date (field_quan) */
 $handler->display->display_options['filters']['field_quan_value']['id'] = 'field_quan_value';
 $handler->display->display_options['filters']['field_quan_value']['table'] = 'field_data_field_quan';
 $handler->display->display_options['filters']['field_quan_value']['field'] = 'field_quan_value';
-$handler->display->display_options['filters']['field_quan_value']['operator'] = 'between';
+$handler->display->display_options['filters']['field_quan_value']['operator'] = '<=';
 $handler->display->display_options['filters']['field_quan_value']['group'] = 1;
 $handler->display->display_options['filters']['field_quan_value']['exposed'] = TRUE;
 $handler->display->display_options['filters']['field_quan_value']['expose']['operator_id'] = 'field_quan_value_op';
-$handler->display->display_options['filters']['field_quan_value']['expose']['label'] = 'al';
 $handler->display->display_options['filters']['field_quan_value']['expose']['operator'] = 'field_quan_value_op';
-$handler->display->display_options['filters']['field_quan_value']['expose']['identifier'] = 'start-date';
+$handler->display->display_options['filters']['field_quan_value']['expose']['identifier'] = 'end-date';
+$handler->display->display_options['filters']['field_quan_value']['expose']['remember'] = TRUE;
 $handler->display->display_options['filters']['field_quan_value']['expose']['remember_roles'] = array(
   2 => '2',
-  1 => 0,
+  1 => '1',
   3 => 0,
   4 => 0,
 );
@@ -567,21 +602,21 @@ $handler->display->display_options['defaults']['relationships'] = FALSE;
 $handler->display->display_options['defaults']['arguments'] = FALSE;
 $handler->display->display_options['defaults']['filter_groups'] = FALSE;
 $handler->display->display_options['defaults']['filters'] = FALSE;
-/* Filter criterion: Contenido: Publicado */
+/* Filter criterion: Contingut: Publicat */
 $handler->display->display_options['filters']['status']['id'] = 'status';
 $handler->display->display_options['filters']['status']['table'] = 'node';
 $handler->display->display_options['filters']['status']['field'] = 'status';
 $handler->display->display_options['filters']['status']['value'] = 1;
 $handler->display->display_options['filters']['status']['group'] = 1;
 $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-/* Filter criterion: Contenido: Tipo */
+/* Filter criterion: Contingut: Tipus */
 $handler->display->display_options['filters']['type']['id'] = 'type';
 $handler->display->display_options['filters']['type']['table'] = 'node';
 $handler->display->display_options['filters']['type']['field'] = 'type';
 $handler->display->display_options['filters']['type']['value'] = array(
   'event' => 'event',
 );
-/* Filter criterion: Contenido: Idioma */
+/* Filter criterion: Contingut: Llengua */
 $handler->display->display_options['filters']['language']['id'] = 'language';
 $handler->display->display_options['filters']['language']['table'] = 'node';
 $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -604,7 +639,6 @@ $handler->display->display_options['row_options']['guid_field_options'] = array(
   'guid_field_is_permalink' => 0,
 );
 $handler->display->display_options['path'] = 'rss';
-
 
 $export['eventos'] = $view;
   

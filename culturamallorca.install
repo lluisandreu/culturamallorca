@@ -102,31 +102,6 @@ function culturamallorca_uninstall() {
 		->execute();
 }
 
-/*
-function culturamallorca_update_7002() {
-	// Set a language for each block
-
-	db_insert('i18n_block_language')
-		->fields(array(
-			'module' => 'views',
-			'delta' => '-exp-events-page',
-			'language' => 'ca',
-			))
-		->execute();
-	watchdog('culturamallorca', '-exp-events-page language set to ca', NULL, WATCHDOG_NOTICE);
-
-	db_insert('i18n_block_language')
-		->fields(array(
-			'module' => 'views',
-			'delta' => '-exp-events_castella-page',
-			'language' => 'es',
-			))
-		->execute();
-	watchdog('culturamallorca', '-exp-events_esp-page language set to es', NULL, WATCHDOG_NOTICE);
-	return t('Added language for filter blocks');
-	block_flush_caches();
-}
-*/
 function culturamallorca_update_7001() {
 	// Move Views Exposed filter to the right region
 	block_flush_caches();
@@ -156,4 +131,21 @@ function culturamallorca_update_7001() {
 	block_flush_caches();
 
 	return t('Filter blocks moved the the right region');
+}
+
+/* Revert events view */
+function culturamallorca_update_7002() {
+  // Reverting events views
+  ctools_include('object-cache');
+  $views = views_get_all_views();
+  foreach ($views as $view) {
+    if ($view->type == t('Overridden')) {
+      // Revert the view.
+      $view->delete();
+      // Clear its cache.
+      ctools_object_cache_clear('view', $view->name);
+    }
+  }
+cache_clear_all();
+return t('Events views have been reverted');
 }

@@ -71,7 +71,10 @@
     color: #fff !important;
 }
 
-#edit-start-date-wrapper {
+#edit-start-date-wrapper,
+#edit-end-date-wrapper,
+#edit-start-date-esp-value-date,
+#edit-end-date-esp-value-date {
     visibility: hidden;
     position: absolute !important;
     height: 1px;
